@@ -1,2 +1,11 @@
-# ag-gpt-bert
-This repository contains the code for training an Ancient Greek GPT-BERT.
+# Ancient Greek GPT-BERT
+
+In this project ...
+
+## Content
+
+## Tokenization
+
+## Pretraining
+
+## Finetuning

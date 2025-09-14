@@ -8,5 +8,5 @@
     "num_attention_heads": 12,
     "num_hidden_layers": 12,
     "vocab_size": 32768,
-    "layer_norm_eps": 1.0e-7
+    "layer_norm_eps": 1.0e-5
 }

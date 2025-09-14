@@ -1,10 +1,11 @@
 # GPT-BERT Pretraining
 
-This directory contains the code for pretraining a GPT-BERT model. The `train_distributed.py` file is used to train the model across multiple GPUs (4) on the same node. The distributed training is implemented using PyTorch's native `torchrun` utility.
+This directory contains the code for pretraining a GPT-BERT model. The `train_dist.sh` script is used to
+launch the `train_distributed.py` file across multiple GPUs (4) on the same node. The distributed training is implemented using PyTorch's native `torchrun` utility.
 
 ## Training Script
 
-An example usage of the training script is given below:
+An example usage of the training script (as in `train_dist.sh`) is given below:
 
 ```bash
 torchrun \
@@ -19,7 +20,7 @@ torchrun \
     --config_file="../configs/config.json" \
     --tokenizer_path="../tokenizers/tokenizer.json" \
     --output_dir="../checkpoints" \
-    --name="Run Name" \
+    --name="RUN NAME" \
     --hybrid_numerator=1 \
     --hybrid_denominator=4 \
     --seq_length=128 \
@@ -49,8 +50,8 @@ The code implements a hybrid CLM-MLM training approach:
 - This fraction is controlled with `hybrid_numerator/hybrid_denominator`
 - The `hybrid_numerator` parameter controls the MLM fraction out of the total
 
-NB: The code requires the number of GPUs to be a multiple of the specified `hybrid_denominator` i.e. to train with a 1:3 causal-to-masked ratio, the number
-of GPUs used must be a multiple of four.
+**NB**: The code requires the number of GPUs to be a multiple of the specified `hybrid_denominator`, i.e.
+to train with a 1:3 causal-to-masked ratio, the number of GPUs used must be a multiple of four.
 
 ## Validation and Monitoring
 

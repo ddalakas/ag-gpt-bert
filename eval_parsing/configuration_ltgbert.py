@@ -15,7 +15,7 @@ class LtgbertConfig(PretrainedConfig):
         position_bucket_size=32,
         num_attention_heads=12,
         num_hidden_layers=12,
-        layer_norm_eps=1.0e-7,
+        layer_norm_eps=1.0e-5,
         output_all_encoded_layers=True,
         temperature=1.0,
         **kwargs,

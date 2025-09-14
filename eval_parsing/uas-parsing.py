@@ -209,7 +209,7 @@ def train(config, hybrid_name, seed=42, task_name="uas"):
         logging.info("Tokenized_datasets: %s", tokenized_datasets)
 
         # Create an output directory for this particular seed
-        seed_output_dir = os.path.join(output_dir, f"seed_{seed}")
+        seed_output_dir = os.path.join(output_dir, f"{hybrid_name}-seed{seed}")
 
         training_arguments = {
             "eval_strategy": "epoch",

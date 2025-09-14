@@ -16,14 +16,14 @@ torchrun \
     --node_rank=0 \
     --master_addr=$MASTER_ADDR \
     --master_port=$MASTER_PORT \
-    train_distributed_new.py \
+    train_distributed.py \
     --train_path="../bin/train_tokenized.bin" \
     --valid_path="../bin/val_tokenized.bin" \
     --config_file="../configs/config.json" \
-    --tokenizer_path="../tokenizers/tokenizer.json" \
+    --tokenizer_path="../tokenizer/tokenizer.json" \
     --output_dir="../checkpoints" \
     --name="RUN NAME" \
-    --hybrid_numerator=1 \
+    --hybrid_numerator=2 \
     --hybrid_denominator=4 \
     --seq_length=128 \
     --local_batch_size=32 \

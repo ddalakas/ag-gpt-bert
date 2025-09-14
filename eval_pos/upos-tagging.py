@@ -145,7 +145,7 @@ def train(config, hybrid_name, seed=42, task_name="upos"):
     with wandb.init(config=config,mode="offline") as run:
         run_config = run.config
 
-        tokenizer = PreTrainedTokenizerFast(tokenizer_file="../tokenizers/tokenizer.json",
+        tokenizer = PreTrainedTokenizerFast(tokenizer_file="../tokenizer/tokenizer.json",
                                         unk_token="<unk>",
                                         pad_token="<pad>",
                                         cls_token="<s>",

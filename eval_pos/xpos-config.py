@@ -17,8 +17,8 @@ run_config = {
             "values": ["PATH_TO_HUGGING_FACE_FOLDER"]
         },
         "num_train_epochs": {"values": [20]},  # Total epochs
-        "per_device_train_batch_size": {"values": [4]},
-        "per_device_eval_batch_size": {"values": [4]},
+        "per_device_train_batch_size": {"values": [16]},
+        "per_device_eval_batch_size": {"values": [16]},
         "weight_decay": {"values": [0.01]}
     }
 }

@@ -18,10 +18,10 @@ torchrun \
     --train_path="../bin/train_tokenized.bin" \
     --valid_path="../bin/val_tokenized.bin" \
     --config_file="../configs/config.json" \
-    --tokenizer_path="../tokenizers/tokenizer.json" \
+    --tokenizer_path="../tokenizer/tokenizer.json" \
     --output_dir="../checkpoints" \
     --name="RUN NAME" \
-    --hybrid_numerator=1 \
+    --hybrid_numerator=2 \
     --hybrid_denominator=4 \
     --seq_length=128 \
     --local_batch_size=32 \
@@ -61,8 +61,8 @@ The following metrics are logged to wandb:
 - Validation loss/perplexity (MLM and CLM)
 - Token prediction accuracy
 - Gradient norms
-- Learning rates
-- Batch sizes and sequence lengths
+- Learning rate
+- Batch sizes (local and global) and sequence length
 - Masking probabilities
 
 ## Usage Requirements
@@ -71,8 +71,8 @@ The following metrics are logged to wandb:
 
 The code requires (among other libraries) :
 
-- HuggingFace Tokenizers
-- PyTorch with CUDA support
+- Hugging Face Tokenizers
+- PyTorch with CUDA support for DistributedDataParallel
 - wandb for experiment tracking
 
 ### Pretraining Data Preparation
@@ -82,7 +82,7 @@ the `tokenize_corpus.py` file in the `tokenize_scripts` directory.
 
 ## Checkpoints
 
-The training script saves:
+The training script saves the following types of checkpoints for each run:
 
 - Regular model weights
 - EMA model weights

@@ -68,4 +68,4 @@ Accordingly, there are two directories for these downstream tasks: `eval_pos` an
 # License
 
 This project is licensed under [CC BY-NC-SA 2.5](https://creativecommons.org/licenses/by-nc-sa/2.5/).  
-See [`LICENSE.md`](LICENSE.md) for full legal code.
+See [`LICENSE`](LICENSE) for full legal code.

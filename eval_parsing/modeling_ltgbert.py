@@ -6,7 +6,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils import checkpoint
 
-from .configuration_ltgbert import LtgbertConfig
+from configuration_ltgbert import LtgbertConfig
 from transformers.modeling_utils import PreTrainedModel
 from transformers.activations import gelu_new
 from transformers.modeling_outputs import (

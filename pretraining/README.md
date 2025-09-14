@@ -65,7 +65,7 @@ The following metrics are logged to wandb:
 - Batch sizes (local and global) and sequence length
 - Masking probabilities
 
-## Usage Requirements
+## Usage
 
 ### Prerequisites
 

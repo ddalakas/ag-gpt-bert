@@ -23,6 +23,8 @@ Links:
 - [First1KGreek Project](https://github.com/OpenGreekAndLatin/First1KGreek)
 - [Perseus Digital Library - Canonical Greek Literature](https://github.com/PerseusDL/canonical-greekLit)
 
+The texts are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
 # Reproduce Our Results
 
 ## Setup
@@ -62,3 +64,8 @@ The finetuning tasks are divided into two categories: PoS tagging and dependency
 Accordingly, there are two directories for these downstream tasks: `eval_pos` and `eval_parsing`. Refer to the `README.md` in each directory for detailed instructions.
 
 **Note:** After pretraining, the `.bin` model checkpoint must be converted to a format supported by Hugging Face, specifically the SafeTensors format.
+
+# License
+
+This project is licensed under [CC BY-NC-SA 2.5](https://creativecommons.org/licenses/by-nc-sa/2.5/).  
+See [`LICENSE.md`](LICENSE.md) for full legal code.

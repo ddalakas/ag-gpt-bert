@@ -65,15 +65,11 @@ def generate_text(model_name, checkpoint_file, prompt, max_new_tokens=20, num_re
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--prompt", type=str, default="Τῆς παιδείας ἔφη τὰς μὲν ῥίζας εἶναι πικράς, τὸν δὲ καρπὸν γλυκύν.", help="Prompt text")
-    parser.add_argument("--ratio", type=str, default="2_4", help="Hybrid Ratio (0_4, 1_4, 2_4, 3_4, 4_4)")
     parser.add_argument("--max_new_tokens", type=int, default=20)
     parser.add_argument("--num_return_sequences", type=int, default=5)
     parser.add_argument("--hf_folder_name", type=str, required=True, help="Hugging Face folder for the model.")
     parser.add_argument("--checkpoint_name", type=str, required=True, help="Model checkpoint name (.bin file).")
     args = parser.parse_args()
-
-    if args.checkpoint_name is None:
-        args.checkpoint_name = f"checkpoints/{args.hf_folder_name}_{args.ratio}.bin"
 
     # Generate Ancient Greek text with specified parameters
     generate_text(

@@ -8,6 +8,4 @@ The GPT-BERT model implementation (with Hugging Face wrappers) is provided in `m
 
 Finetuning hyperparameters can be adjusted in the `uas-config.py` file.
 
-**NB:** The path to the Hugging Face folder containing the model checkpoint must be specified in `uas-config.py`. If you haven’t already created a Hugging Face checkpoint folder for the model, use `convert_to_hf.py` in the `eval_pos` directory to do so. Make sure to copy `modeling_ltgbert.py` and `configuration_ltgbert.py`
-into the HF checkpoint folder. Lastly, ensure the `config.json` file in the HF checkpoint contains the
-'AutoMap' for the Hugging Face wrappers. The correct `config.json` file is in the `eval_pos` directory.
+> **Note:** To create a Hugging Face (HF) checkpoint (with a SafeTensors file) for the model, use `convert_to_hf.py`. Make sure to copy `modeling_ltgbert.py` and `configuration_ltgbert.py` into the same HF folder. Ensure that the `config.json` file in the HF folder contains the `AutoMap` for using the Hugging Face wrappers. The correct `config.json` file is in the `eval_pos` directory. Lastly, the path to the HF folder must be specified in `uas-config.py`

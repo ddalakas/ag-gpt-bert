@@ -317,17 +317,6 @@ def training_epoch(model, ema_model, train_dataloader, masked_valid_dataloader, 
             torch.distributed.all_reduce(metrics, torch.distributed.ReduceOp.AVG)
             total_loss, total_accuracy, total_z_loss, total_mask_p, total_mlm_loss, total_clm_loss = metrics.tolist()
 
-
-            local_tokens = attention_mask.sum().item()
-            local_tokens_tensor = torch.tensor(local_tokens, device=args.device, dtype=torch.long)
-            torch.distributed.all_reduce(local_tokens_tensor, op=torch.distributed.ReduceOp.SUM)
-
-            # Compute total tokens seen by all GPUs, as well as epochs completed
-            if is_main_process():
-                args.total_tokens_seen +=local_tokens_tensor.item() # Add the total tokens seen this step (summed across all GPUs) to the running total
-                global_tokens = args.total_tokens_seen
-                epochs_completed = global_tokens / args.total_training_tokens # Compute epochs completed
-
         # log the metrics
         if is_main_process():
             wandb.log(
@@ -345,9 +334,7 @@ def training_epoch(model, ema_model, train_dataloader, masked_valid_dataloader, 
                     "stats/global_batch_size": args.current_global_batch_size,
                     "stats/local_batch_size": args.current_local_batch_size,
                     "stats/accumulate_steps": args.accumulate_steps,
-                    "stats/mask_p": total_mask_p,
-                    "train/epochs_completed": epochs_completed,
-                    "train/global_tokens_seen": global_tokens
+                    "stats/mask_p": total_mask_p
                 },
                 commit=False
             )
@@ -457,7 +444,7 @@ def save(model, ema_model, optimizer, scheduler, global_step, epoch, args):
                 "optimizer": optimizer.state_dict(),
                 "scheduler": scheduler.state_dict(),
                 "global_step": global_step,
-                "epoch": epoch + 1
+                "epoch": epoch
             },
             state_path
         )
@@ -537,9 +524,6 @@ if __name__ == "__main__":
     model, ema_model, optimizer, scheduler, global_step, start_epoch = prepare_model_and_optimizer(args)
 
     train_dataloader, masked_valid_dataloader, causal_valid_dataloader = None, None, None
-
-    args.total_tokens_seen = 0
-    args.total_training_tokens = 41095195 # Total number of tokens in the training dataset
 
     for epoch in count(start=start_epoch):
         train_dataloader, masked_valid_dataloader, causal_valid_dataloader = load_datasets(args, tokenizer, epoch, global_step, train_dataloader, masked_valid_dataloader, causal_valid_dataloader)

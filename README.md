@@ -43,17 +43,18 @@ This can be done using the `split_data.py` script in the `preprocess` folder.
 
 ## Tokenization
 
-The GPT-BERT pretraining script requires the texts to be pre-tokenized in a binary format.  
- Use the `tokenizer.json` file supplied in the `tokenizer` directory to tokenize the different corpus splits.
+The trained tokenizer's `tokenizer.json` file is provided in the `tokenizer` directory. The GPT-BERT pretraining script requires texts to be pre-tokenized and stored in a binary format.
+
+To do this:
 
 1. Navigate to the `tokenize_scripts` directory.
-2. Run the `tokenize_corpus.py` script to produce a `.bin` file for each split of the corpus.  
-   The tokenized binary files will be saved in the `bin` folder.
+2. Run the `tokenize_corpus.py` script to produce a `.bin` file for each split of the corpus. The tokenized binary files will be saved in the `bin` folder.
 
-**Note:** We also provide scripts to train a tokenizer from scratch and to test it:
-
-- `tokenizer.py` - Train a new Ancient Greek tokenizer (Byte-Level BPE with Roberta post-processing).
-- `test_tokenizer.py` - Test the tokenizer.
+> **Note**  
+> Additional scripts are provided to train or test a tokenizer:
+>
+> - `tokenizer.py` — Train a new Ancient Greek tokenizer (Byte-Level BPE with RoBERTa post-processing).
+> - `test_tokenizer.py` — Test the tokenizer.
 
 ## Pretraining
 

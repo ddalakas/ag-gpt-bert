@@ -1,7 +1,7 @@
 # GPT-BERT Pretraining
 
 This directory contains the code for pretraining a GPT-BERT model. The `train_dist.sh` script is used to
-launch the `train_distributed.py` file across multiple GPUs (4) on the same node. The distributed training is implemented using PyTorch's native `torchrun` utility.
+launch `train_distributed.py` across multiple GPUs (4) on the same node. The distributed training is implemented using PyTorch's native `torchrun` utility. The files in this directory are either taken directly from or adapted from the official GPT-BERT [implementation](https://github.com/ltgoslo/gpt-bert/blob/main/pretraining).
 
 ## Training Script
 
@@ -50,8 +50,8 @@ The code implements a hybrid CLM-MLM training approach:
 - This fraction is controlled with `hybrid_numerator/hybrid_denominator`
 - The `hybrid_numerator` parameter controls the MLM fraction out of the total
 
-**NB**: The code requires the number of GPUs to be a multiple of the specified `hybrid_denominator`, i.e.
-to train with a 1:3 causal-to-masked ratio, the number of GPUs used must be a multiple of four.
+> **NB**: The code requires the number of GPUs to be a multiple of the specified `hybrid_denominator`, i.e.
+> to train with a 1:3 causal-to-masked ratio, the number of GPUs used must be a multiple of four.
 
 ## Validation and Monitoring
 

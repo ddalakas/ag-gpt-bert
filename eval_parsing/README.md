@@ -4,7 +4,9 @@ This directory contains code for finetuning a GPT-BERT model on the task of unla
 
 A shell script (`run_uas.sh`) is provided to run **three finetuning experiments**, each with a different random seed.
 
-The GPT-BERT model implementation (with Hugging Face wrappers) is provided in `modeling_ltgbert.py`, and the configuration is defined in `configuration_ltgbert.py`. Both files are taken/adapted from the official GPT-BERT Hugging Face [repository](https://huggingface.co/ltg/gpt-bert-babylm-base/tree/main).
+The tagging, configuration, and associated Python scripts are adapted from the work of [Heidelberg-NLP](https://github.com/Heidelberg-NLP/ancient-language-models).
+
+The GPT-BERT model implementation (with Hugging Face wrappers) is provided in `modeling_ltgbert.py`, and the configuration is defined in `configuration_ltgbert.py`. Both files are adapted from the official GPT-BERT Hugging Face [repository](https://huggingface.co/ltg/gpt-bert-babylm-base/tree/main).
 
 Finetuning hyperparameters can be adjusted in the `uas-config.py` file.
 

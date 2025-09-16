@@ -7,7 +7,9 @@ A shell script is provided for each task to run **three finetuning experiments**
 - **UPoS tagging**: `run_upos.sh`
 - **XPoS tagging**: `run_xpos.sh`
 
-The GPT-BERT model implementation (with Hugging Face wrappers) is provided in `modeling_ltgbert.py`, and the configuration is defined in `configuration_ltgbert.py`. Both files are taken/adapted from the official GPT-BERT Hugging Face [repository](https://huggingface.co/ltg/gpt-bert-babylm-base/tree/main).
+The tagging, configuration, and associated Python scripts are adapted from the work of [Heidelberg-NLP](https://github.com/Heidelberg-NLP/ancient-language-models).
+
+The GPT-BERT model implementation (with Hugging Face wrappers) is provided in `modeling_ltgbert.py`, and the configuration is defined in `configuration_ltgbert.py`. Both files are adapted from the official GPT-BERT Hugging Face [repository](https://huggingface.co/ltg/gpt-bert-babylm-base/tree/main).
 
 Finetuning hyperparameters can be adjusted in the `upos-config.py` and `xpos-config.py` files, respectively.
 
